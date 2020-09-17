@@ -129,6 +129,12 @@ namespace :sidekiq do
     end
   end
 
+  def sidekiq_config
+    if fetch(:sidekiq_config)
+      "--config #{fetch(:sidekiq_config)}"
+    end
+  end
+
   def sidekiq_user
     fetch(:sidekiq_user, fetch(:run_as))
   end
